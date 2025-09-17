@@ -1,4 +1,4 @@
-from ViT_Rice_Disease_Classification.preprocessing import prepare_dataset
+from preprocessing import prepare_dataset
 import torch
 import numpy as np 
 import os 
