@@ -42,3 +42,9 @@ def train_val_split(data):
     val_dataset = torch.utils.data.Subset(data, val_idx)
     
     return (train_dataset, val_dataset)
+
+def get_test_loader(batch_size, test_dir, input_size):
+    transform = transform_image(input_size)
+    test_dataset = datasets.ImageFolder(root=test_dir, transform=transform)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    return test_loader
