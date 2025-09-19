@@ -176,6 +176,6 @@ def create_next_folder(base_dir, prefix):
 
 
 if __name__ == "__main__":
-    data_dir = r"C:\Users\ACER\OneDrive\Desktop\PAOLO\MSU-IIT\BS COM ENG (1st Sem_2024-2025)\COE190\Yolo\vit_rice_classification\archive\resized_raw_images\resized_raw_images"
-    train_loader, val_loader = prepare_dataset (batch_size=32, input_size=(224, 224), data_dir=data_dir)
+    test_dir = r"C:\Users\ACER\OneDrive\Desktop\PAOLO\MSU-IIT\BS COM ENG (1st Sem_2024-2025)\COE190\Yolo\vit_rice_classification\archive\test"
+    train_loader, val_loader = prepare_dataset (batch_size=32, input_size=(224, 224), data_dir=test_dir)
     history = train_model(train_loader, val_loader, num_classes=14, epochs=10)
