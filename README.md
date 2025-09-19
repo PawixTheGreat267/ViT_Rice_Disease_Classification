@@ -6,7 +6,7 @@ The Vision Transformer introduces the power of **self-attention mechanisms**—o
 Unlike traditional CNNs, ViT divides the image into patches and processes them as sequences, enabling the model to capture both **local and global dependencies** effectively.  
 
 ## Results
-The trained model achieved an **overall accuracy of ~65%**, which highlights its ability to distinguish between different rice disease categories but also suggests room for further improvement.  
+The trained model achieved an **overall accuracy of ~68%**, which highlights its ability to distinguish between different rice disease categories but also suggests room for further improvement.  
 Despite this moderate accuracy, the model demonstrates how ViTs can be successfully applied in agricultural disease detection and lays the foundation for more fine-tuned approaches.  
 
 Here are the evaluation results:
