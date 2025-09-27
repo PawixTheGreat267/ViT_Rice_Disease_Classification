@@ -2,6 +2,7 @@ import torchvision.transforms as transforms
 import cv2 
 import torch
 from PIL import Image
+from transformers import ViTForImageClassification
 
 
 def transform_image(input_size):
@@ -28,11 +29,16 @@ def preprocess_image(image, input_size, device):
     return image_tensor 
 
 if __name__ == "__main__":
-    image = cv2.imread(r'C:\Users\ACER\OneDrive\Desktop\PAOLO\MSU-IIT\BS COM ENG (1st Sem_2024-2025)\COE190\Yolo\vit_rice_classification\archive\extra_resized_raw_images\extra_resized_raw_images\bakanae\Bakanae (1).jpeg')
+    image = cv2.imread(r'C:\Users\ACER\OneDrive\Desktop\PAOLO\MSU-IIT\BS COM ENG (1st Sem_2024-2025)\COE190\Yolo\vit_rice_classification\archive\extra_resized_raw_images\extra_resized_raw_images\stem_rot\Stem_rot (1).jpeg')
     if image is None:
         raise FileNotFoundError("Image not found or path is incorrect!")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     image_tensor = preprocess_image(image, input_size=(224,224), device=device)
+    
+    # Add safe globals for ViT model loading
+    torch.serialization.add_safe_globals([ViTForImageClassification])
+    
+    # Load the model with the safe globals
     model = torch.load(r'C:\Users\ACER\OneDrive\Desktop\PAOLO\MSU-IIT\BS COM ENG (1st Sem_2024-2025)\COE190\Yolo\vit_rice_classification\ViT_Rice_Disease_Classification\runs\train_1\best_model.pt')
     model.to(device)
     model.eval()
@@ -60,4 +66,4 @@ if __name__ == "__main__":
 
     cv2.imshow('Image', image)
     cv2.waitKey(0)
-    cv2.destoryAllWindows()
+    cv2.destroyAllWindows()
