@@ -21,6 +21,10 @@ Here are the evaluation results:
 ![Result 3](runs/test_1/Model%20Evaluation%20Metrics.png)  
 ![Result 4](runs/test_1/Precision-Recall%20Curve%20for%20Multiclass%20with%20AUC.png)
 
+## Deployment Results
+
+![Result 1](Predict_deployment1.png)  
+
 ---
 
 ## Key Takeaways
